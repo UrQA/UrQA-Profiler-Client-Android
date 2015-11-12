@@ -10,7 +10,7 @@ public class AllProfileInformationSerializer implements java.io.Serializable{
     public BatterySerializer batteryInformation;
     public CPUSerializer cpuInformation;
     public MemorySerializer memoryInformation;
-
+    public CurrrentThreadSerializer currrentThreadInformation;
 
     public AllProfileInformationSerializer(){
 

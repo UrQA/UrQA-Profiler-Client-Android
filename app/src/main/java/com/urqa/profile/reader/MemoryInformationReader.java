@@ -2,7 +2,7 @@ package com.urqa.profile.reader;
 
 import android.os.Debug;
 
-import com.urqa.profile.AllProfileInformationSerializer;
+import com.urqa.profile.writer.serialize.AllProfileInformationSerializer;
 import com.urqa.profile.writer.serialize.MemorySerializer;
 
 import org.json.JSONException;

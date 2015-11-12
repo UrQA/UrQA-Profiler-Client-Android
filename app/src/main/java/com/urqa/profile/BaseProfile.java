@@ -26,7 +26,7 @@ public abstract class BaseProfile {
     protected String currentFileName;
     protected String currentFilePath;
 
-    private Vector<ProfileResourceReader> resourceReaders;
+    protected Vector<ProfileResourceReader> resourceReaders;
 
     protected static BaseProfile profilingObject = null;
 

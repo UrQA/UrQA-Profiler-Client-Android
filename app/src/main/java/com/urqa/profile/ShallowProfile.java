@@ -4,6 +4,9 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 
+import com.urqa.profile.reader.CurrentThreadInformationReader;
+import com.urqa.profile.reader.ProfileResourceReader;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,6 +19,14 @@ class ShallowProfile extends BaseProfile{
 
     public ShallowProfile(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType){
         super(paramContext, paramProfileType, paramProfileDataFileFormatType);
+    }
+
+    protected void prepareProfiling(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType) {
+        super.prepareProfiling(paramContext, paramProfileType, paramProfileDataFileFormatType);
+        ProfileResourceReader currentThread = new CurrentThreadInformationReader();
+
+        resourceReaders.addElement(currentThread);
+
     }
 
     public void startReadProfileData() {

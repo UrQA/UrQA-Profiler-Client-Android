@@ -1,6 +1,6 @@
 package com.urqa.profile.reader;
 
-import com.urqa.profile.AllProfileInformationSerializer;
+import com.urqa.profile.writer.serialize.AllProfileInformationSerializer;
 import com.urqa.profile.writer.serialize.CPUSerializer;
 
 import org.json.JSONException;

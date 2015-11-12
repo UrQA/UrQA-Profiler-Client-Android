@@ -5,7 +5,7 @@ package com.urqa.profile.writer.serialize;
  */
 public class MemorySerializer implements java.io.Serializable {
 
-    private static final long serialVersionUID = 1207L;
+    private static final long serialVersionUID = 1206L;
 
     public int memoryInformation_privateDirty_native;
     public int memoryInformation_privateDirty_dalvik;
