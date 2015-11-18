@@ -26,12 +26,14 @@
 5. rename two static library files as below
  - armeabi/liburqanative_gnustl.a
  - armeabi-v7a/liburqanative_gnustl.a
-6. define the APP_STL as "stlport_static" in the "UrQA-Profiler-Client-Android/app/src/main/jni/Application.mk"
+6. define the APP_STL as "stlport_static" in the "UrQA-Profiler-Client-Android/app/src/main/jni/Application.mk"<br>
+  <img src="readmeImages/application_mk.png" alt="SDK name" width="200" height="150"/>
 7. click Gradle on the right side of the IDE window, then The Gradle tasks panel appears
 8. double-click the "UrQA-Profile-Client-Android/app/Tasks/other/ndkBuild" task
 9. the build generates two static library files below in the directory of "UrQA-Profile-Client-Android/app/src/main/obj/local”
  - armeabi/liburqanative.a
- - armeabi-v7a/liburqanative.a
+ - armeabi-v7a/liburqanative.a<br>
+   <img src="readmeImages/staticlibrary.png" alt="SDK name" width="200" height="350"/>
 10. copy the directory of “UrQA-Profiler-Client-Android/app/src/main/jni/header”
 11. delete *.cc files in the directory and and all levels of subdirectories
 12. create a zip archive of the below directory
