@@ -52,7 +52,29 @@ public abstract class BaseProfile {
                 return null;
 
             if(paramProfileType == PROFILE_TYPE_SHALLOW)
-                profilingObject = new ShallowProfile();
+                profilingObject = new ShallowProfile(1000);
+            else if(paramProfileType == PROFILE_TYPE_DEEP)
+                profilingObject = new DeepProfile();
+            else
+                return null;
+
+            profilingObject.prepareProfiling(paramContext, paramProfileType, PROFILE_DATAFILE_JSON);
+
+        }
+
+        return profilingObject;
+
+    }
+
+    public static BaseProfile getInstance(Context paramContext, int paramProfileType, long periodMillisUsefulOnlyForShallowProfiling){
+
+        if(profilingObject == null) {
+
+            if(paramContext == null)
+                return null;
+
+            if(paramProfileType == PROFILE_TYPE_SHALLOW)
+                profilingObject = new ShallowProfile(periodMillisUsefulOnlyForShallowProfiling);
             else if(paramProfileType == PROFILE_TYPE_DEEP)
                 profilingObject = new DeepProfile();
             else

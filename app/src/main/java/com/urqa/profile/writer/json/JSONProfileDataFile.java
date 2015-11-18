@@ -44,7 +44,6 @@ public class JSONProfileDataFile implements ProfileDataFile {
         try {
 
             if(currentFileWriter != null){
-                Log.e("hhs", profilingData.toString());
                 currentFileWriter.write(profilingData.toString());
                 currentFileWriter.flush();
             }

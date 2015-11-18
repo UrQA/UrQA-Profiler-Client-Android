@@ -16,9 +16,16 @@ import java.util.TimerTask;
 class ShallowProfile extends BaseProfile{
 
     private Timer mTimer = null;
+    private long profilingPeriodMillis;
 
     public ShallowProfile(){
         super();
+        profilingPeriodMillis = 1000;
+    }
+
+    public ShallowProfile(long periodMillis){
+        super();
+        profilingPeriodMillis = periodMillis;
     }
 
     protected void prepareProfiling(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType) {
@@ -41,7 +48,7 @@ class ShallowProfile extends BaseProfile{
                         BaseProfile.writeProfileDataToFile();
                     }
 
-                }, 1000, 1000
+                }, 1000, profilingPeriodMillis
         );
 
     }
