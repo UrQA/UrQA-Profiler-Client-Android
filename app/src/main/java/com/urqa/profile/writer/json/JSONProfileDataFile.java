@@ -1,7 +1,5 @@
 package com.urqa.profile.writer.json;
 
-import android.util.Log;
-
 import com.urqa.profile.reader.ProfileResourceReader;
 import com.urqa.profile.writer.ProfileDataFile;
 
