@@ -14,7 +14,7 @@
 # To build & release the android client sdk for ndk
 1. define the APP_STL as "gnustl_static" in the "UrQA-Profiler-Client-Android/app/src/main/jni/Application.mk"
 2. click Gradle on the right side of the IDE window, then The Gradle tasks panel appears
-3. double-click the "UrQA-Profile-Client-Android/app/Tasks/other/bundleRelease" task
+3. double-click the "UrQA-Profile-Client-Android/app/Tasks/other/ndkBuild" task
 4. the build generates two static library files below in the directory of "UrQA-Profile-Client-Android/app/src/main/obj/local"
  - armeabi/liburqanative.a
  - armeabi-v7a/liburqanative.a
@@ -23,7 +23,7 @@
  - armeabi-v7a/liburqanative_gnustl.a
 6. define the APP_STL as "stlport_static" in the "UrQA-Profiler-Client-Android/app/src/main/jni/Application.mk"
 7. click Gradle on the right side of the IDE window, then The Gradle tasks panel appears
-8. double-click the "UrQA-Profile-Client-Android/app/Tasks/other/bundleRelease" task
+8. double-click the "UrQA-Profile-Client-Android/app/Tasks/other/ndkBuild" task
 9. the build generates two static library files below in the directory of "UrQA-Profile-Client-Android/app/src/main/obj/local”
  - armeabi/liburqanative.a
  - armeabi-v7a/liburqanative.a
