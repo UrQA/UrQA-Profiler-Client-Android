@@ -1,5 +1,7 @@
 package com.urqa.profile.writer.json;
 
+import android.util.Log;
+
 import com.urqa.profile.reader.ProfileResourceReader;
 import com.urqa.profile.writer.ProfileDataFile;
 
@@ -42,6 +44,7 @@ public class JSONProfileDataFile implements ProfileDataFile {
         try {
 
             if(currentFileWriter != null){
+                Log.e("hhs", profilingData.toString());
                 currentFileWriter.write(profilingData.toString());
                 currentFileWriter.flush();
             }

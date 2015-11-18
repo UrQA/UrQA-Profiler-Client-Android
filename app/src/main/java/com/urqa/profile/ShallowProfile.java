@@ -17,8 +17,8 @@ class ShallowProfile extends BaseProfile{
 
     private Timer mTimer = null;
 
-    public ShallowProfile(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType){
-        super(paramContext, paramProfileType, paramProfileDataFileFormatType);
+    public ShallowProfile(){
+        super();
     }
 
     protected void prepareProfiling(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType) {

@@ -40,11 +40,11 @@ public abstract class BaseProfile {
 
     private int profileDatafileType;
 
-    public BaseProfile(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType){
-        prepareProfiling(paramContext, paramProfileType, paramProfileDataFileFormatType);
+    public BaseProfile(){
+
     }
 
-    public static BaseProfile getInstance(Context paramContext, int paramProfileType, int paramProfileDataFileFormatType){
+    public static BaseProfile getInstance(Context paramContext, int paramProfileType){
 
         if(profilingObject == null) {
 
@@ -52,15 +52,13 @@ public abstract class BaseProfile {
                 return null;
 
             if(paramProfileType == PROFILE_TYPE_SHALLOW)
-                profilingObject = new ShallowProfile(paramContext, paramProfileType, paramProfileDataFileFormatType);
+                profilingObject = new ShallowProfile();
             else if(paramProfileType == PROFILE_TYPE_DEEP)
-                profilingObject = new DeepProfile(paramContext, paramProfileType, paramProfileDataFileFormatType);
+                profilingObject = new DeepProfile();
             else
                 return null;
 
-            if(paramProfileDataFileFormatType != PROFILE_DATAFILE_JSON && paramProfileDataFileFormatType != PROFILE_DATAFILE_SERIALIZATION){
-                return null;
-            }
+            profilingObject.prepareProfiling(paramContext, paramProfileType, PROFILE_DATAFILE_JSON);
 
         }
 
@@ -137,7 +135,9 @@ public abstract class BaseProfile {
         else
             return null;
 
+        profileDataFile.openFileForStoringProfileData();
         profilingfiles.addElement(currentFilePath);
+
         return profileDataFile;
     }
 
