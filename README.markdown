@@ -1,6 +1,17 @@
-# UrQA-Profiler-Client-Android
+# UrQA-Profiler-Client-Android history
 - UrQA android client sdk which is changed project for Eclipse into Android Studio
 - add profiling fuction(there are two profiling options, shallow and deep)
+
+# Android Client SDK
+This is the client sdk for android application which is being tested automatically. 
+While the android application is being tested, the sdk
+- is gathering profiling data, and sends the profiling data to server after the test is finished. 
+- reports the crash to the server when the runtime exceptions or errors are occurred.
+
+So, the developer can 
+- analyze potential problem for the resource usage of the application and optimize the resource usage of the application with profiling data
+- analyze the crash and solve the problems
+- test the multi devices at once and compare the test result of devices
 
 # To build & release the android client sdk for java
 1. set the library version inside the below files
@@ -47,3 +58,38 @@
    <img src="readmeImages/tree5.png" alt="SDK name" width="200" height="400"/>&nbsp;&nbsp;
 13. release the zip file<br>
 
+# How to use the sdk for profile
+
+1. download the lastest version of the UrQA client library 
+ - https://github.com/UrQA/UrQA-Profiler-Client-Android/tree/master/app/release 
+
+2. import the UrQA client library 
+    1. copy the library file in the libs folder. Make sure you are in the Project view mode (Top left corver of the Project window)
+    2. Right click on the UrQA client library file and select the last option "Add as library" on the pop up window
+
+3. Add the “Internet” permission to your manifest file to upload the profile data file to the server 
+ - <uses-permission android:name="android.permission.INTERNET" />
+
+4. write the code  
+    1. import com.urqa.profile.BaseProfile;
+    2. create an instance for profile function
+       in case of Shallow Profile 
+        - BaseProfile.getInstance(getApplicationContext(), BaseProfile.PROFILE_TYPE_SHALLOW);
+          - gather the profiling data for memory, cpu, and power periodically ( the period of the profile is 1000 miliseconds
+       or 
+        - BaseProfile.getInstance(getApplicationContext(), BaseProfile.PROFILE_TYPE_SHALLOW , x);
+          - gather the profiling data for memory, cpu, and power per x miliseconds
+
+       in case of Deep profile 
+        - BaseProfile.getInstance(getApplicationContext(), BaseProfile.PROFILE_TYPE_DEEP);
+          - gather the profiling data  for memory, cpu, and power only when the method which is annotated is called. 
+  
+    3. in case of Deep Profile<br> 
+       mark with @AfterProfile, @BeforeProfile, @Profile annotation on the method which means you want to profile<br> 
+       warning) don’t mark with annotation on the method when it is Shallow Profile
+
+    4. call the startReadProfileData() function of the BaseProfile instance<br> 
+       then it will start the profiling 
+
+    5. call the stopReadProfileData() function of the BaseProfile instance<br> 
+       then it will finish the profiling 
