@@ -68,11 +68,11 @@ So, the developer can
     2. Right click on the UrQA client library file and select the last option "Add as library" on the pop up window
 
 3. Add the “Internet” permission to your manifest file to upload the profile data file to the server 
- - <uses-permission android:name="android.permission.INTERNET" />
+    -  < uses-permission android:name="android.permission.INTERNET" />
 
 4. write the code  
     1. import com.urqa.profile.BaseProfile;
-    2. create an instance for profile function
+    2. create an instance for profile function<br>
        in case of Shallow Profile 
         - BaseProfile.getInstance(getApplicationContext(), BaseProfile.PROFILE_TYPE_SHALLOW);
           - gather the profiling data for memory, cpu, and power periodically ( the period of the profile is 1000 miliseconds
